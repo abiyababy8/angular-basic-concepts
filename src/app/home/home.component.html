@@ -1,1 +1,21 @@
-<p>home works!</p>
+<h2 [style.color]="titleColor">{{title}}</h2>
+<img [src]="imageUrl" alt="">
+<button class="btn btn-success m-5" (click)="showAlert('Maxwell')">Show Alert</button>
+<h3 class="m-5">COUNT <span class="text-warning">{{count}}</span></h3>
+<button class="btn btn-success ms-3" (click)="incrementCount()">Increment</button><button class="btn btn-danger ms-3"
+    (click)="decrementCount()">Decrement</button><button class="btn btn-primary ms-3"
+    (click)="resetCount()">Reset</button>
+<h3>Getting value from input box</h3>
+<h4>UserName:{{username}}</h4>
+<div class="d-flex">
+    <input type="text" #uname class="form-control w-50 mt-3" (keyup)="getUserName($event)">
+    <button class="btn btn-danger ms-3" [disabled]="!uname.value">HELLO WORLD</button>
+    <button class="btn btn-success ms-3" (click)="getValue(uname)">GET VALUE</button>
+</div>
+<h3 [ngClass]="myStyle">NgClass Example</h3>
+<button class="btn btn-primary" (click)="changeStyle()">CHANGE STYLE</button>
+<h3 class="m-3">Structural derivatives</h3>
+<h4 *ngIf="!isShow">Example for ngIf directive</h4>
+<h4 class="text-success" *ngIf="isEligible">Eligible for vote</h4>
+<h4 class="text-danger" *ngIf="!isEligible">Not Eligible for vote</h4>
+<input type="text" class="form-control w-25 mt-3" placeholder="Enter your age" (input)="checkEligibility($event)">
