@@ -19,3 +19,6 @@
 <h4 class="text-success" *ngIf="isEligible">Eligible for vote</h4>
 <h4 class="text-danger" *ngIf="!isEligible">Not Eligible for vote</h4>
 <input type="text" class="form-control w-25 mt-3" placeholder="Enter your age" (input)="checkEligibility($event)">
+<ol>
+    <li *ngFor="let item of userList">{{item}}</li>
+</ol>
