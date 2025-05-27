@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, UpperCasePipe, LowerCasePipe, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AppendPipe } from '../pipes/append.pipe';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-home',
-  imports: [NgClass, NgIf,NgFor],
+  imports: [NgClass, NgIf, NgFor, FormsModule, UpperCasePipe, LowerCasePipe, DatePipe, AppendPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -48,4 +51,16 @@ export class HomeComponent {
     }
   }
   userList: string[] = ['Max', 'Todd', 'Sean', 'Kenneth', 'Heather']
+  address: string = "NYK PB 5008"
+  getAddress() {
+    alert(this.address)
+  }
+  userStatus: boolean = true
+  today: Date = new Date()
+  constructor(private api: ApiService) {
+
+  }
+  getData() {
+    alert(this.api.serviceData)
+  }
 }

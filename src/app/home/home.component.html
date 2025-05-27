@@ -1,4 +1,5 @@
-<h2 [style.color]="titleColor">{{title}}</h2>
+<h2 [style.color]="titleColor">{{title| append:"hello"|uppercase}}</h2>
+<h3>{{today|date:'shortDate'}}</h3>
 <img [src]="imageUrl" alt="">
 <button class="btn btn-success m-5" (click)="showAlert('Maxwell')">Show Alert</button>
 <h3 class="m-5">COUNT <span class="text-warning">{{count}}</span></h3>
@@ -22,3 +23,24 @@
 <ol>
     <li *ngFor="let item of userList">{{item}}</li>
 </ol>
+<h3>User Address: <span class="text-warning">{{address}}</span></h3>
+<input type="text" [(ngModel)]="address" placeholder="Enter your address" class="form-control w-25">
+<button (click)="getAddress()" class="btn btn-info ms-2">Add Address</button>
+<h3>Control flow statements</h3>
+<h4>
+    User status:
+    @if(userStatus){
+    <span class="text-success">ACTIVE</span>
+    }
+    @else {
+    <span class="text-danger">INACTIVE</span>
+
+    }
+</h4>
+<h3>User List using for</h3>
+<ol>
+    @for(item of userList; track $index){
+        <li>{{item}}</li>
+    }
+</ol>
+<button (click)="getData()" class="m-3 btn btn-primary">Data from service</button>
