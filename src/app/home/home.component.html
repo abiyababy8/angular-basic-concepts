@@ -44,3 +44,24 @@
     }
 </ol>
 <button (click)="getData()" class="m-3 btn btn-primary">Data from service</button>
+<button (click)="getMethod()" class="m-3 btn btn-primary">Method from service</button>
+<button (click)="showAllPost()" class="m-3 btn btn-primary">Show All Posts</button>
+<h2>ALL POSTS</h2>
+<table class="table my-5">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (post of allPost; track $index) {
+            <tr>
+                <td>{{post.id}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.body}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

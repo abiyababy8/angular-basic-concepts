@@ -63,4 +63,18 @@ export class HomeComponent {
   getData() {
     alert(this.api.serviceData)
   }
+  getMethod() {
+    this.api.showName("Sean")
+  }
+  allPost:any=[]
+  showAllPost() {
+    this.api.getAllPost().subscribe((res: any) => {
+      console.log("All Posts:", res)
+      this.allPost=res
+    })
+  }
+  ngOnInit(){
+    this.showAllPost()
+    alert("Hello")
+  }
 }
