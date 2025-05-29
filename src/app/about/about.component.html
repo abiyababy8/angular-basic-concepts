@@ -2,3 +2,35 @@
 <!-- about is the parent component
  user is the child component -->
 <app-user [firstName]="dataToSend" (onAlert)="getMessage($event)"></app-user>
+<div class="my-5 container">
+    <!-- <form class="border border-primary p-3 w-50"> -->
+    <form #registerForm="ngForm" class="border border-primary p-3 w-50" (ngSubmit)="register()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" required [(ngModel)]="userEmail" name="userEmail" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp" email #emailInput="ngModel">
+            @if(emailInput.invalid && emailInput.touched){
+            <div class="text-danger">Invalid Email</div>
+            }
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" required [(ngModel)]="firstname" name="firstname" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp" pattern="[a-zA-Z]*" #nameInput="ngModel">
+            @if(nameInput.invalid && nameInput.touched){
+            <div class="text-danger">Invalid Name</div>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" required [(ngModel)]="password" name="password" class="form-control"
+                id="exampleInputPassword1" pattern="[a-zA-Z0-9]*" #passwordInput="ngModel">
+            @if(passwordInput.invalid && passwordInput.touched){
+            <div class="text-danger">Invalid Password</div>
+            }
+        </div>
+        <!-- <button type="button" (click)="register()" class="btn btn-primary">Submit</button> -->
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+    </form>
+</div>
