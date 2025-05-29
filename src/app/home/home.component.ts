@@ -3,10 +3,12 @@ import { NgClass, NgFor, NgIf, UpperCasePipe, LowerCasePipe, DatePipe } from '@a
 import { FormsModule } from '@angular/forms';
 import { AppendPipe } from '../pipes/append.pipe';
 import { ApiService } from '../services/api.service';
+import { Post } from '../interfaces/post';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [NgClass, NgIf, NgFor, FormsModule, UpperCasePipe, LowerCasePipe, DatePipe, AppendPipe],
+  imports: [NgClass, NgIf, NgFor, FormsModule, UpperCasePipe, LowerCasePipe, DatePipe, AppendPipe,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -66,14 +68,14 @@ export class HomeComponent {
   getMethod() {
     this.api.showName("Sean")
   }
-  allPost:any=[]
+  allPost: Post[] = []
   showAllPost() {
     this.api.getAllPost().subscribe((res: any) => {
       console.log("All Posts:", res)
-      this.allPost=res
+      this.allPost = res
     })
   }
-  ngOnInit(){
+  ngOnInit() {
     this.showAllPost()
     alert("Hello")
   }
