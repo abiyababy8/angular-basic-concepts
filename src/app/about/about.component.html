@@ -1,6 +1,7 @@
 <p>about works!</p>
 <!-- about is the parent component
  user is the child component -->
+<button class="btn btn-warning" (click)="resetCount()">RESET COUNT</button>
 <app-user [firstName]="dataToSend" (onAlert)="getMessage($event)"></app-user>
 <div class="my-5 container">
     <!-- <form class="border border-primary p-3 w-50"> -->

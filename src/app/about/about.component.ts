@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserComponent } from '../user/user.component';
 import { FormsModule } from '@angular/forms';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-about',
@@ -14,10 +15,14 @@ export class AboutComponent {
   firstname: string = ""
   password: string = ""
   dataToSend = "Sean"
+  constructor(private api: ApiService) { }
   getMessage(data: any) {
     alert(data)
   }
-  register(){
+  register() {
     alert(`${this.userEmail}, ${this.firstname}, ${this.password}`)
+  }
+  resetCount() {
+    this.api.resetSignalValue()
   }
 }
